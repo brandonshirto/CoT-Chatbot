@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CoT Chatbot Pilot </title>
+  <style>
+    body { font-family: system-ui, -apple-system, sans-serif; max-width: 700px; margin: 40px auto; padding: 0 20px; color: #333; line-height: 1.6; }
+    .instruction-box { background: #f0f4f8; border-left: 4px solid #0066cc; padding: 16px 20px; border-radius: 6px; margin: 20px 0; }
+    .feedback-card { background: #fafafa; border: 1px solid #ddd; padding: 15px; border-radius: 6px; }
+  </style>
+
+  <!-- PASTE SINCH CHATLAYER HEAD SCRIPT HERE -->
+</head>
+<body>
+  <h1>CoT Chatbot Pilot Portal</h1>
+  <p>Thank you for participating in our pilot phase!</p>
+
+  <div class="instruction-box">
+    <h3>How to Test:</h3>
+    <ul>
+      <li>Click the chat bubble icon in the bottom corner to launch the bot.</li>
+      <li>Test common queries (e.g. Account Summary, I Want to Report, Chat to a Live Agent).</li>
+      <li>Try unexpected or complex phrasing to evaluate fallback handling.</li>
+    </ul>
+  </div>
+
+
+<script>
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  
+  script.addEventListener("load", async () => {
+    await SinchSdk.initialize();
+    
+    await SinchSdk.setIdentity({
+      clientId: '01KKE7558V518DN1YACHPY93V7',
+      projectId: '04c5f67f-a0ce-4226-b37c-c2fcf7f242a6',
+      region: 'EU',
+    });
+  
+    SinchSdk.Chat.mount({
+      brandText: 'CoT Webchat',
+      brandColor: '#007171',
+    });
+  })
+  
+  script.src = 'https://cdn.sinch.com/sinch-chat/latest/sdk.js';
+  document.head.appendChild(script);
+</script>
+  
+
+  <!-- PASTE SINCH CHATLAYER BODY SCRIPT(S) HERE -->
+</body>
+</html>
